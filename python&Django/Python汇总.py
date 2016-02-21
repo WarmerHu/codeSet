@@ -47,3 +47,10 @@ myaddr = socket.gethostbyname(myname)#获取本机ip
 读取-------------
 判断是否有键值：req.has_key('now')
 ===================================
+
+8.多行字符串======
+a='''sss
+    sss'''
+a=('ssss'
+   'sss')
+===============
