@@ -134,10 +134,9 @@ setting设置---------------------------------------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'warmerhu@163.com'
-EMAIL_HOST_PASSWORD = 'warmer33ching'
-EMAIL_SUBJECT_PREFIX = 'smart'
-DEFAULT_FROM_EMAIL = 'warmerhu@163.com'
+EMAIL_HOST_USER = 'xxx@xx.xx'
+EMAIL_HOST_PASSWORD = 'xxx'
+EMAIL_SUBJECT_PREFIX = 'xx'
 view----------------------------------------------------------------------------------------------------------------------------------
 send_mail(subject, message, from_email, recipient_list, fail_silently=False, auth_user=None, auth_password=None, connection=None)
 发邮件的最便捷方式就是使用 django.core.mail.send_mail() 。
