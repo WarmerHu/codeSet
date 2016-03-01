@@ -83,6 +83,12 @@ a=('ssss'
     finally:
         file_object.close( )
             注：不能把open语句放在try块里，因为当打开文件出现异常时，文件对象file_object无法执行close()方法。
+            
+    Python 2 里基本没区别。Python 3 里没 file。
+    Python 2 里，file 是文件对象。open 是返回新创建的文件对象的内建函数，相当于：
+    def open(*args, **kwargs):
+        return file(*args, **kwargs)
+
 
 读取文件：
     .read()、.readline() 和 .readlines()。每种方法可以接受一个变量以限制每次读取的数据量，但它们通常不使用变量。 
@@ -147,6 +153,15 @@ a=('ssss'
             写入多行
     file_object.writelines(list_of_text_strings)
             注意，调用writelines写入多行在性能上会比使用write一次性写入要高。
+    
+删除：
+    os.remove()
+    if os.path.exists(dir_path):
+        if os.path.isfile(os.path.join(dir_path,i)):
+            os.remove(os.path.join(dir_path,i)) #删除文件
+
+创建：
+    os.makedirs(targetDir)#创建目录
 
 移动：
     .seek(offset, whence=SEEK_SET)
