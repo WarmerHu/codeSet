@@ -165,3 +165,51 @@ var r = window.location.search; // ?hello
 21.截取字符串============================================
 r = r.substring(r.indexOf("?"),r.length-1);
 ======================================================
+
+22. 导航栏下拉栏=======================================================================================================================
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="nav navbar-nav">
+        <li>
+                <a class="dropdown-toggle" aria-expanded="true" aria-haspopup="true" role="button" href="#" data-toggle="dropdown">
+                                                             刷题宝典
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/title">开始刷题</a>
+                    </li>
+                    <li>
+                        <a href="/title/publish/add">发布题目</a>
+                    </li>
+                </ul>
+            </li>
+    </ul>
+</nav>
+====================================================================================================================================
+
+23. 对齐=====================
+右对齐：css——float: right;
+============================
+
+24. 按钮不可点击，输入框不可操作================================
+<ul class="nav nav-pills" role="tablist">
+        <li class="active" role="presentation">
+            <a data-toggle="tab" role="tab" aria-controls="home" href="#intro" onclick="firt()">逐一手动输入题目</a>
+        </li>
+        <li role="presentation">
+            <a data-toggle="tab" role="tab" aria-controls="profile" href="#coin" onclick="sect()">通过execl发布题目</a>
+        </li>
+    </ul>
+<textarea id='qu' name="question" type="text" class="form-control"></textarea>
+<input name="answer" type="text" class="form-control" />
+<button class="btn btn-primary btn-lg btn-block" id="add-val"  >继续添加下一题</button>
+
+function firt(){
+    $(".form-control").removeAttr("readonly");
+    $("#add-val").removeAttr("disabled");
+}
+function sect(){
+    $(".form-control").attr("readonly","true");
+    $("#add-val").attr("disabled","true");
+}
+=======================================================

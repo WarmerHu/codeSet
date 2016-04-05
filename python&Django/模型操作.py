@@ -51,6 +51,18 @@ P.S.多种函数可以组合用，Topic.objects.filter(userid=self.us).order_by(
 Activity(userid=self.us,time=realtime).save()
 ================================================
 
+批量插入：===========================================
+def insert_titles(self,req):
+        querysetlist=[]
+        for i in req:
+            querysetlist.append(Exercise(title=req['title'],
+                                         answer=req['answer'],
+                                         tips=req['tips'],
+                                         userid=self.us,
+                                         state='ACTIVE'))        
+        Exercise.objects.bulk_create(querysetlist)
+==================================================
+
 更新：============================================
 1.
 self.bbs = Topic.objects.get(id=req["id"])
