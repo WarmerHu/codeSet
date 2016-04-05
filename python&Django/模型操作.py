@@ -43,6 +43,9 @@ mysql中的用法:Category.objects.values('parentcode','email').distinct()
         for v in opi:
             value['topicId'] = v.topicID
 
+6.count
+Job.objects.count() 
+
 P.S.多种函数可以组合用，Topic.objects.filter(userid=self.us).order_by("-time")[:1]
 ==========================================================================================
 
