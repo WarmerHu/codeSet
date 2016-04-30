@@ -34,6 +34,10 @@ $("#islog").attr("href","/account/logout");
 $("input[name='col-id']").val(data.id);
 $("#tips").html("data.tips");# id="tips"的元素赋值为"data.tips"
 $("h1[name='title-topic']").html(data.topic);#<h1 name='title-topic']>
+$(".form-control").removeAttr("readonly");
+$("#add-val").removeAttr("disabled");
+$(".form-control").attr("readonly","true");
+$("#add-val").attr("disabled","true");
 =================================================================================
 
 14.删除元素：
@@ -216,3 +220,19 @@ function sect(){
     $("#add-val").attr("disabled","true");
 }
 =======================================================
+
+25. radio box==============================================================================
+html----------------------------------------------------------------------------------------------------------------------------------------------
+<label><input type="radio" name="radio"  value="author"  id="author"/> 用户</label>
+<label><input type="radio" name="radio"  value="topic"  id="topic"/> 话题</label>
+<label><input type="radio" name="radio"  value="opinion" id="opinion"/> 意见</label>
+----------------------------------------------------------------------------------------------------------------------------------------------------
+disable-----------------------------------------------
+$("#opinion").attr("disabled","true");
+$("#opinion").removeAttr("disabled");
+---------------------------------------------------------
+checked----------------------------------------------
+$("#topic").attr("checked","checked");
+$("#topic").removeAttr("checked");
+----------------------------------------------------------
+========================================================
