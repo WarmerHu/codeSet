@@ -46,6 +46,39 @@ mysql中的用法:Category.objects.values('parentcode','email').distinct()
 6.count
 Job.objects.count() 
 
+7.Q
+Q class
+from django.db.models import Q
+Keyword argument queries – in filter(), etc. – are “AND”ed together. 
+If you need to execute more complex queries (for example, queries with OR statements), you can use Q objects.
+从文档把Q放在Complex lookups with Q objects,下就可以看出，Q是做复杂查询的
+and --> XX.objects.filter(Q(f=1),Q(f=2))  # 肯定木有结果 f == 1 and f == 2
+or --> XX.objects.filter(Q(f=1) | Q(f=2)) # f ==1 | f == 2
+not --> XX.objects.filter(~Q(f=1),Q(f=2))  # f != 1 and f == 2
+
+8.F
+F class
+from django.db.models import F
+Instances of F() act as a reference to a model field within a query. 
+These references can then be used in query filters to compare the values of two different fields on the same model instance
+例如model 有两列 一列叫做user,一列叫做assigned_user,
+需求是取出user=assigned_user的记录
+direct_comment = _tasks.filter(user=F('assigned_user'))
+
+9.group_by
+def group_by(query_set, group_by):
+    '''util:django 获取分类列表'''
+    assert isinstance(query_set, QuerySet)
+    django_groups = query_set.values(group_by).annotate(Count(group_by))
+    groups = []
+    for dict_ in django_groups:
+        groups.append(dict_.get(group_by))
+    return groups
+例如:
+assign_to = _tasks.exclude(user=F('assigned_user'))
+groups = group_by(assign_to, 'group')
+取出的是一个列表groups = [1L, 3L, 4L]
+
 P.S.多种函数可以组合用，Topic.objects.filter(userid=self.us).order_by("-time")[:1]
 ==========================================================================================
 

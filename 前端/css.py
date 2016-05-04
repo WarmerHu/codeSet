@@ -53,3 +53,27 @@ margin:10px 5px;
 margin:10px;
 所有 4 个外边距都是 10px
 ==================================
+
+4. border=======================================================================
+border:5px solid red;
+可以按顺序设置如下属性:
+border-width     规定边框的宽度。
+border-style (dotted solid double dashed none hidden groove ridge inset outset inherit)
+border-color     规定边框的颜色。
+
+e.g.
+border-style:dotted solid double dashed;(top,right,bottom,left)
+border-color:red green blue;(top,right&left,bottom) 
+set one of the borders: 
+p  {
+  border-style:solid;
+  border-bottom-style:dotted;
+  }
+===============================================================================
+
+5. content exceed table's width==
+ table{
+  table-layout:fixed;
+   overflow:hidden;
+  }
+============================
