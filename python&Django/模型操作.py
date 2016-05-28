@@ -31,6 +31,13 @@ Opinion.objects.filter(userid=self.us,topicid=self.bbs,time__startswith=realtime
  range  You can use range anywhere you can use BETWEEN in SQL for dates
  year, month, and day  对date/datetime类型严格匹配年、月或日
  isnull  使用``True``或``False``，则分别相当于SQL语句中的``IS NULL``和``IS NOT NULL``
+ range 在范围以内-------------------------------------------------------------------------------------------------------------
+ today = datetime.date.today() 
+date_from = today
+tomorrow = today + datetime.timedelta(days=1) 
+date_to =  tomorrow
+if Topic.objects.filter(userid=self.us,time__range=[date_from, date_to]).count() < 5:
+---------------------------------------------------------------------------------------------------------------------------------------
 
 4.distinct(*fields)
 mysql中的用法:Category.objects.values('parentcode','email').distinct()

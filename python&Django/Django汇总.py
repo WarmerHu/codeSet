@@ -132,7 +132,7 @@ function doUpload(){
 7.发送邮件================================================================================================================================
 setting设置---------------------------------------------------------
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST = '' //the host for an email server
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'xxx@xx.xx'
 EMAIL_HOST_PASSWORD = 'xxx'

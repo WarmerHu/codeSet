@@ -6,6 +6,7 @@ Created on 2016年1月28日
 '''
 from __builtin__ import file
 from fileinput import close
+from datetime import timedelta
 1 获取变量长度：len(content)
 
 2 编码，解码=============================================
@@ -241,3 +242,62 @@ gci('/root')
     table.cell(0,0)  #单元格的值'
     table.cell(0,0).value #单元格的值'
 ======================================================================
+
+12 datetime=================================================================
+import datetime
+# 获取当前时间
+d1 = datetime.datetime.now()
+# 当前时间加上半小时
+d2 = d1 + datetime.timedelta(hours=0.5)
+# 格式化字符串输出
+d3 = d2.strftime('%Y-%m-%d %H:%M:%S')
+# 将字符串转化为时间类型
+d4 = datetime.datetime.strptime(date,'%Y-%m-%d %H:%M:%S.%f')
+#获取本月第一天
+datetime.date.today() - datetime.timedelta(days=datetime.datetime.now().day - 1)
+#获取本周第一天
+datetime.date.today() - datetime.timedelta(days=datetime.date.today().weekday())
+"""
+当前时间
+返回的是一个datetime类型
+now方法有个参数tz，设置时区类型。如果没有和方法today的效果一样
+"""
+now = datetime.datetime.now()
+#UTC时间
+datetime.datetime.utcnow()
+"""
+返回一个time结构
+"""
+now.timetuple() 
+
+"""
+返回一个date类型
+"""
+now.date()
+
+"""
+返回一个time类型
+"""
+now.time()
+
+"""
+当前星期几。星期一是0，星期于是6
+注意这里是方法，不是属性哦。
+"""
+now.weekday()
+
+"""
+当前星期几。星期一是1，星期于是7
+注意这里是方法，不是属性哦。
+"""
+now.isoweekday()
+
+"""
+修改当前时间。比如修改成当月1号
+"""
+now.replace(day=1)
+===========================================================================
+
+13 timedelta==============================================================================
+ class datetime.timedelta([days[, seconds[, microseconds[, milliseconds[, minutes[, hours[, weeks]]]]]]]) 
+==========================================================================================

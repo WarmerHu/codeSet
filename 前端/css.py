@@ -77,3 +77,18 @@ p  {
    overflow:hidden;
   }
 ============================
+
+6. width========
+th{
+   min-width:61px;
+  }
+================
+
+7. 对齐===================================
+  .td-t{
+    text-align:center;
+}
+align——表示左右居中——left，center，right
+valign——控制上下居中——left，center，right
+右对齐：css——float: right;
+===========================================
